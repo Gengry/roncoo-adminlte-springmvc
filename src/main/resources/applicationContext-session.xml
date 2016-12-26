@@ -15,7 +15,7 @@
 		http://www.springframework.org/schema/aop
 		http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-	<bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+	<!-- <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
 		<property name="maxTotal" value="${redis.maxTotal}" />
 		<property name="maxIdle" value="${redis.maxIdle}" />
 		<property name="maxWaitMillis" value="${redis.maxWait}" />
@@ -36,10 +36,10 @@
 		<property name="connectionFactory" ref="jedisConnectionFactory" />
 	</bean>
 
-	<!-- 将session放入redis -->
+	将session放入redis
 	<bean id="redisHttpSessionConfiguration"
 		class="org.springframework.session.data.redis.config.annotation.web.http.RedisHttpSessionConfiguration">
 		<property name="maxInactiveIntervalInSeconds" value="1800" />
-	</bean>
+	</bean> -->
 
 </beans>

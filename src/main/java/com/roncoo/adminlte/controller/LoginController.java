@@ -41,7 +41,7 @@ import com.roncoo.adminlte.util.base.BaseController;
  */
 @Controller
 @RequestMapping
-@EnableSpringHttpSession
+//@EnableSpringHttpSession
 public class LoginController extends BaseController {
 
 	@Autowired
@@ -71,14 +71,14 @@ public class LoginController extends BaseController {
 	}
 	
 	@RequestMapping(value = "/certification", method = RequestMethod.GET)
-	public String certification(){
+	public String certification(HttpSession session){
 		Result<String> result = biz.login();
 		if (result.isStatus()) {
 			logger.info(result.getResultData());
 			
 			// 本地发布修改这里，随便增加一个session值即可，请删除下面的：return redirect(result.getResultData());
-			//session.setAttribute(Constants.Token.RONCOO, "www.roncoo.com");
-			return redirect(result.getResultData());
+			session.setAttribute(Constants.Token.RONCOO, "www.roncoo.com");
+			//return redirect(result.getResultData());
 		}
 		return redirect("/login");
 	}
